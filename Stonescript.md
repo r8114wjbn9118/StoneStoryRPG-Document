@@ -3283,14 +3283,14 @@ import Fishing
 | 疫病魔杖   | "wand_poison"     | 900                 | 无           |
 | 荡涤魔杖   | "wand_vigor"      | 900 - 15 × (enLv-1) | 无           |
 | 引力魔杖   | "wand_stone"      | 900 - 30 × (enLv-1) | 无           |
-| 延展长杖   | "staff_aether"    |                     |              |
-| 炼狱长杖   | "staff_fire"      |                     |              |
-| 永恒长杖   | "staff_ice"       |                     |              |
-| 狂战长杖   | "staff_poison"    |                     |              |
-| 防阻长杖   | "staff_vigor"     |                     |              |
-| 灵敏长杖   | "staff_stone"     |                     |              |
+| 延展长杖   | "staff_aether"    | 900                 | 无           |
+| 炼狱长杖   | "staff_fire"      | 900                 | 无           |
+| 永恒长杖   | "staff_ice"       | 900 - 30 × (enLv-1) | 无           |
+| 狂战长杖   | "staff_poison"    | 900                 | 无           |
+| 防阻长杖   | "staff_vigor"     | 900 - 30 × (enLv-1) | 无           |
+| 灵敏长杖   | "staff_stone"     | 900 - 30 × (enLv-1) | 无           |
 
-（部分装备未完全实装，在实装后补充相关数据）
+
 
 ------
 
@@ -4107,64 +4107,66 @@ waterfall_c
 
 以下是石头纪中各种buff和debuff的标准名称，如需要通过buffs.string等相似系统变量判断，可以使用其中部分单词，具体使用情况请按实际进行：
 
-| 代码名                                           | 中文                                           |
-| ------------------------------------------------ | ---------------------------------------------- |
-| **player's buff**                                | **玩家增益效果**                               |
-| ∞:debuff_damage                                  | 剧毒p，增加伤害                                |
-| ·:smite                                          | 堕神之剑技能，重击                             |
-| ≡:pick_pocket                                    | 骷髅手普攻，扒窃                               |
-| o:bardiche_buff_aoe_chance                       | 巴迪什技能，单体攻击限制                       |
-| o:bardiche_buff_crit_chance                      | 巴迪什技能，100%暴击                           |
-| o:bardiche_buff_crit_mult                        | 巴迪什技能，增加暴击倍数                       |
-| o:bardiche_buff_move_speed                       | 巴迪什、重锤技能，短暂增加移速                 |
-| o:quarterstaff_buff_attack_speed                 | 铁头长杖技能，短暂增加攻击速度                 |
-| o:quarterstaff_buff_stun                         | 铁头长杖技能，短暂造成眩晕                     |
-| @:experience                                     | 经验药水，增加获得的经验和气                   |
-| o:strength                                       | 怪力药水，击晕与破甲                           |
-| !:lucky_crit                                     | 暴击药水，必定暴击                             |
-| ×:lucky_mult                                     | 暴击药水，暴击倍率增加1.8×                     |
-| W:vampiric                                       | 吸血药水，20%吸血                              |
-| ʘ:berserk                                        | 狂暴药水，攻速+15                              |
-| ?:invisibility                                   | 隐身药水，完全闪避                             |
-|                                                  |                                                |
-| **player's debuff**                              | **玩家减益效果**                               |
-| ∞:debuff_duration_damage                         | 受到剧毒敌人攻击                               |
-| ∞:dysangelos_debuff_damage                       | 大眼混元之体剧毒攻击                           |
-| ❄:debuff_chill                                   | 大眼混元之体寒冰攻击，惩戒夫人反射             |
-| φ:debuff_dot                                     | 大眼混元之体火焰攻击，惩戒夫人反射             |
-| ❄:debuff_yeti_chill                              | 雪怪利姆尼尔雪球，减攻速                       |
-| ❄:debuff_move_speed                              | 雪怪利姆尼尔吹风，减移速                       |
-| ♥:puff_debuff_damage                             | 毛毛爆炸，禁止回血                             |
-| *:pallas_phase2_debuff                           | 骷髅帕拉斯二阶段的致盲，减射程                 |
-| o:stun                                           | 愤怒蘑菇攻击或惩戒夫人反射造成的眩晕           |
-| ∞:debuff_damage                                  | 惩戒夫人反射                                   |
-| i:ignition                                       | 惩戒夫人反射煤灰精灵技能                       |
-| *:unstable                                       | 惩戒夫人反射织虚者技能                         |
-|                                                  |                                                |
-| **foe's buff:**                                  | **敌人增益效果**                               |
-| ♥:buff_protection                                | 大眼混元之体的免疫异常                         |
-| ∞:spider_buff_damage                             | 蜘蛛布洛希和惩戒夫人的伤害增加                 |
-| !:poena_crit                                     | 惩戒夫人受到暴击，必定暴击                     |
-| ×:poena_mult                                     | 惩戒夫人受到暴击，暴击倍率                     |
-| ♀:poena_mirror                                   | 惩戒夫人，buff反射                             |
-| adaptive_defense                                 | 大眼狄斯安琪洛斯完全体的属性抗性               |
-| ♥:adaptive_defense_vigor                         | 对活力抗性                                     |
-| ❄:adaptive_defense_ice                           | 对冰霜抗性                                     |
-| φ:adaptive_defense_fire                          | 对火焰抗性                                     |
-| ∞:adaptive_defense_poison                        | 对剧毒抗性                                     |
-| *:adaptive_defense_aether                        | 对以太抗性                                     |
-|                                                  |                                                |
-| **foe's debuff:**                                | **敌人减益效果**                               |
-| ∞:debuff_damage                                  | 剧毒P，减少伤害                                |
-| ❄:debuff_chill                                   | 寒冰I或i，减少攻速                             |
-| φ:debuff_dot                                     | 火焰F，持续掉血                                |
-| φ:debuff_dot_2                                   | 火焰f，持续掉血                                |
-| stun                                             | 冲撞盾、铁头长杖技能，怪力药水，重锤、大锤普攻 |
-| "o:stun""♥:stun""φ:stun""❄:stun""*:stun""∞:stun" | 取决于武器属性                                 |
-| ∞:debuff_feeble                                  | 邪教面具技能，虚弱                             |
-| ×:debuff_armor_fatigue                           | 重锤技能，减少护甲回复                         |
-| i:ignition                                       | 煤灰精灵技能，按层数持续掉血                   |
-| *:unstable                                       | 织虚者技能，使敌人有概率消解                   |
+| 代码名                                                       | 中文                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **player's buff**                                            | **玩家增益效果**                                             |
+| ∞:debuff_damage                                              | 剧毒p，增加伤害                                              |
+| ·:smite                                                      | 堕神之剑技能，重击                                           |
+| ≡:pick_pocket                                                | 骷髅手普攻，扒窃                                             |
+| o:bardiche_buff_aoe_chance                                   | 巴迪什技能，单体攻击限制                                     |
+| o:bardiche_buff_crit_chance                                  | 巴迪什技能，100%暴击                                         |
+| o:bardiche_buff_crit_mult                                    | 巴迪什技能，增加暴击倍数                                     |
+| o:bardiche_buff_move_speed                                   | 巴迪什、重锤、炼狱长杖技能技能，短暂增加移速                 |
+| o:quarterstaff_buff_attack_speed                             | 铁头长杖技能，短暂增加攻击速度                               |
+| o:quarterstaff_buff_stun                                     | 铁头长杖技能，短暂造成眩晕                                   |
+| @:experience                                                 | 经验药水，增加获得的经验和气                                 |
+| o:strength                                                   | 怪力药水，击晕与破甲                                         |
+| !:lucky_crit                                                 | 暴击药水，必定暴击                                           |
+| ×:lucky_mult                                                 | 暴击药水，暴击倍率增加1.8×                                   |
+| W:vampiric                                                   | 吸血药水，20%吸血                                            |
+| ʘ:berserk                                                    | 狂暴药水，攻速+15                                            |
+| ?:invisibility                                               | 隐身药水，完全闪避                                           |
+| *:buff_range                                                 | 延展长杖技能，增加攻击距离10（至多到22）                     |
+| *:buff_bullet_width                                          | 延展长杖技能，增加子弹的攻击宽度                             |
+| φ:buff_infernal                                              | 炼狱长杖技能，灼烧伤害及攻速加成，详细效果见[附录J](#·:·:· 附录J.隐藏附魔效果 ·:·:·)中炼狱长杖技能效果 |
+| ∞:buff_staff_berserk                                         | 狂战长杖技能，增加伤害和受伤，详细效果见[附录J](#·:·:· 附录J.隐藏附魔效果 ·:·:·)中狂战长杖技能效果 |
+| ♥:buff_staff_protection                                      | 防阻长杖技能，期间受到的第一个debuff无效                     |
+|                                                              |                                                              |
+| **player's debuff**                                          | **玩家减益效果**                                             |
+| ∞:debuff_duration_damage                                     | 受到剧毒敌人攻击                                             |
+| ∞:dysangelos_debuff_damage                                   | 大眼混元之体剧毒攻击                                         |
+| ❄:debuff_chill                                               | 大眼混元之体寒冰攻击                                         |
+| φ:debuff_dot                                                 | 大眼混元之体火焰攻击                                         |
+| ❄:debuff_yeti_chill                                          | 雪怪利姆尼尔雪球，减攻速                                     |
+| ❄:debuff_move_speed                                          | 雪怪利姆尼尔吹风，减移速                                     |
+| ♥:puff_debuff_damage                                         | 毛毛爆炸，禁止回血                                           |
+| *:pallas_phase2_debuff                                       | 骷髅帕拉斯二阶段的致盲，减射程                               |
+| o:stun                                                       | 愤怒蘑菇攻击                                                 |
+| 惩戒夫人珀伊纳会对几乎所有的foe's debuff造成反射（部分可能并不起效） | 玩家对惩戒夫人造成的对应效果                                 |
+|                                                              |                                                              |
+| **foe's buff:**                                              | **敌人增益效果**                                             |
+| ♥:buff_protection                                            | 大眼混元之体的免疫异常                                       |
+| ∞:spider_buff_damage                                         | 蜘蛛布洛希和惩戒夫人的伤害增加                               |
+| !:poena_crit                                                 | 惩戒夫人受到暴击，必定暴击                                   |
+| ×:poena_mult                                                 | 惩戒夫人受到暴击，暴击倍率                                   |
+| ♀:poena_mirror                                               | 惩戒夫人，buff反射                                           |
+| adaptive_defense                                             | 大眼狄斯安琪洛斯完全体的属性抗性                             |
+| ♥:adaptive_defense_vigor                                     | 对活力抗性                                                   |
+| ❄:adaptive_defense_ice                                       | 对冰霜抗性                                                   |
+| φ:adaptive_defense_fire                                      | 对火焰抗性                                                   |
+| ∞:adaptive_defense_poison                                    | 对剧毒抗性                                                   |
+| *:adaptive_defense_aether                                    | 对以太抗性                                                   |
+|                                                              |                                                              |
+| **foe's debuff:**                                            | **敌人减益效果**                                             |
+| ∞:debuff_damage                                              | 剧毒P，减少伤害                                              |
+| ❄:debuff_chill                                               | 寒冰I或i，减少攻速                                           |
+| φ:debuff_dot                                                 | 火焰F，持续掉血                                              |
+| φ:debuff_dot_2                                               | 火焰f，持续掉血                                              |
+| o:stun<br />注：stun目前存在bug，有可能在代码中被归为foe.buffs | 冲撞盾、铁头长杖、冰霜魔杖技能，怪力药水，重锤、大锤普攻     |
+| ∞:debuff_feeble                                              | 邪教面具技能，虚弱                                           |
+| ×:debuff_armor_fatigue                                       | 重锤技能，减少护甲回复                                       |
+| i:ignition                                                   | 煤灰精灵技能，按层数持续掉血                                 |
+| *:unstable                                                   | 织虚者技能，使敌人有概率消解                                 |
 
 
 
@@ -4271,30 +4273,30 @@ equip sword ice -long +1
 
 从邪神面具实装后，武器装备中逐渐添加了各种隐藏附魔效果，以下是石头纪中各种隐藏附魔的效果。一般隐藏附魔效果会随着**附魔等级的提升而改变**，具体数值在下表中标出，附魔等级用 enLv 表示。
 
-| 装备                              | 隐藏附魔效果                                                 |
-| --------------------------------- | ------------------------------------------------------------ |
-| 邪神面具<br />cult mask           | 延长时间：你最先获得的增益每过  { $22 - \text{enLv}$ }帧就会延长1帧 |
-| 弩 / 连弩                         | 穿透：具备 { $\text{enLv}$ } 的穿透效果                      |
-| 属性锤                            | 溅射：有 { $20 + 4 \times (\text{enLv} - 1)$ } % 的概率溅射  |
-| 符文 / 符文武器                   | 增加生命上限，其中效果最好的是符文，增加 { $ \lceil 7.5 \times (\text{enLv} - 1) \rceil ) $ } 的生命上限 |
-| 灾厄魔杖<br />Calamity Wand       | 技能：- [14]，令附近敌人当前生命减少 { $10 + 1.5 \times \text{enLv}$ } % ，CD：900帧 |
-| 爆炸魔杖<br />Explosive Wand      | 技能：- [4]，造成爆炸，造成{ $40 + 10 \times \text{enLv}$ }点伤害 ，CD：900帧 |
-| 冰霜魔杖<br />Frost Wand          | 技能：- [3]，产生寒风令敌人眩晕{ $ \lceil 90 + 4.5 \times (\text{enLv} - 1) \rceil $ }帧，CD：900帧 |
-| 疫病魔杖<br />Plague Wand         | 技能：- [6]，产生毒雾造成{$ \left\lfloor \frac{\text{enLv} - 1}{4} \right\rfloor + 1 $ }层虚弱，虚弱减益持续90帧 ，CD：900帧<br />注：该效果为debuff_damage，与dP武器效果相同且相互覆盖，且层数均为显示欺诈，实际只有1层。 |
-| 荡涤魔杖<br />Reset Wand          | 技能：- [1]，令附近所有敌人清除身上可以清除的减益和增益 ，CD：{ $900 - 15 \times \text{enLv}$ }帧 |
-| 引力魔杖<br />wand stone hidden   | 技能：- [0]，强迫附近敌人与你站成一排，CD：{ $900 - 30 \times (\text{enLv} - 1)$ }帧 |
-| 延展长杖<br />Gravity Wand        | 技能：- [2]，攻击距离增长{} （最远22） ，CD：帧              |
-| 炼狱长杖<br />staff fire hidden   | 技能：- [5]，地狱之火环绕，攻击速度加快 {} ， 获得灼烧增益效果 ，CD：帧 |
-| 永恒长杖<br />staff ice hidden    | 技能：- [1]，将自己塞入冰箱，免疫伤害且1秒内不能进行动作 ，CD：帧 |
-| 狂战长杖<br />staff poison hidden | 技能：- [7]，进入狂暴状态，令你受到和获得的伤害全部增加{}% ，CD：帧 |
-| 防阻长杖<br />staff vigor hidden  | 技能：- [4]，令你在{}秒内受到的第一个减益效果无效 ，CD：帧   |
-| 灵敏长杖<br />staff stone hidden  | 技能：- [3]，退后闪避，CD：{}帧                              |
+| 装备                           | 隐藏附魔效果                                                 |
+| ------------------------------ | ------------------------------------------------------------ |
+| 邪神面具<br />cult mask        | 延长时间：你最先获得的增益每过  { $22 - \text{enLv}$ }帧就会延长1帧 |
+| 弩 / 连弩                      | 穿透：具备 { $\text{enLv}$ } 的穿透效果                      |
+| 属性锤                         | 溅射：有 { $20 + 4 \times (\text{enLv} - 1)$ } % 的概率溅射  |
+| 符文 / 符文武器                | 增加生命上限，其中效果最好的是符文，增加 { $ \lceil 7.5 \times (\text{enLv} - 1) \rceil ) $ } 的生命上限 |
+| 灾厄魔杖<br />Calamity Wand    | 技能：- [14]，令附近敌人当前生命减少 { $10 + 1.5 \times \text{enLv}$ } % ，CD：900帧 |
+| 爆炸魔杖<br />Explosive Wand   | 技能：- [4]，造成爆炸，造成{ $40 + 10 \times \text{enLv}$ }点伤害 ，CD：900帧 |
+| 冰霜魔杖<br />Frost Wand       | 技能：- [3]，产生寒风令敌人眩晕{ $ \lceil 90 + 4.5 \times (\text{enLv} - 1) \rceil $ }帧，CD：900帧 |
+| 疫病魔杖<br />Plague Wand      | 技能：- [6]，产生毒雾造成{$ \left\lfloor \frac{\text{enLv} - 1}{4} \right\rfloor + 1 $ }层虚弱，虚弱减益持续90帧 ，CD：900帧<br />注：该效果为debuff_damage，与dP武器效果相同且相互覆盖，且层数均为显示欺诈，实际只有1层。 |
+| 荡涤魔杖<br />Reset Wand       | 技能：- [1]，令附近所有敌人清除身上可以清除的减益和增益 ，CD：{ $900 - 15 \times \text{enLv}$ }帧 |
+| 引力魔杖<br />Gravity Wand     | 技能：- [0]，强迫附近敌人与你站成一排，CD：{ $900 - 30 \times (\text{enLv} - 1)$ }帧 |
+| 延展长杖<br />Grasping Staff   | 技能：- [2]，攻击距离增长10 （最远22），并增加子弹的攻击宽度（实际是x方向长度），增益持续时间{ $120 + 30 \times \text{enLv}$ }帧 ，CD：900帧 |
+| 炼狱长杖<br />Infernal Staff   | 技能：- [6]，地狱之火环绕， 获得灼烧增益以及移速增益效果 ，CD：900帧<br />灼烧：攻击速度加快{$3+ \left\lfloor 0.068 \times \text{enLv}  \right\rfloor$}，每2秒造成{$ \left\lfloor \frac{\text{enLv} }{5} \right\rfloor + 1 $}点伤害，增益持续时间{ $180 + 6 \times (\text{enLv} - 1)$ }帧<br />移速：移速+1，持续时间{ $90 + 3 \times (\text{enLv} - 1)$ }帧 |
+| 永恒长杖<br />Eternity Staff   | 技能：- [1]，将自己塞入冰箱，免疫伤害且{$ \left\lfloor 37.5 - 1.5 \times {\text{enLv} } \right\rfloor $}帧内不能进行动作 ，CD：{$900 - 30 \times (\text{enLv} - 1)$}帧 |
+| 狂战长杖<br />Berserker Staff  | 技能：- [8]，进入狂暴状态，令你受到和获得的伤害全部增加{$9 + \text{enLv}$}%，持续时间150帧 ，CD：900帧 |
+| 防阻长杖<br />Prevention Staff | 技能：- [4]，令你在60帧内受到的第一个减益效果无效 ，CD：{$900 - 30 \times (\text{enLv} - 1)$}帧 |
+| 灵敏长杖<br />Acrobatic Staff  | 技能：- [3]，退后闪避5距离，CD：{$900 - 30 \times (\text{enLv} - 1)$}帧 |
 
-（部分装备未完全实装，在实装后补充相关数据）
+
 
 -----
 
-·:·:· 附录K.官方可导入脚本 ·:·:·
+#### ·:·:· 附录K.官方可导入脚本 ·:·:·
 
 **大型游戏**
 
