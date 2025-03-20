@@ -1,22 +1,22 @@
 From: <Saved by Blink>
 Snapshot-Content-Location: https://stonestoryrpg.com/stonescript/beta.html
 Subject: Stonescript Manual
-Date: Wed, 5 Feb 2025 03:21:54 -0000
+Date: Thu, 20 Mar 2025 02:53:09 -0000
 MIME-Version: 1.0
 Content-Type: multipart/related;
 	type="text/html";
-	boundary="----MultipartBoundary--lAxLcHiaP8ihxUvdsDo7Ski2Hng1ZodNWbyGQgFdI8----"
+	boundary="----MultipartBoundary--sj37ONnczLyj1hXmQcvrPMK95Yz1qR5zr2b1yN4zGs----"
 
 
-------MultipartBoundary--lAxLcHiaP8ihxUvdsDo7Ski2Hng1ZodNWbyGQgFdI8----
+------MultipartBoundary--sj37ONnczLyj1hXmQcvrPMK95Yz1qR5zr2b1yN4zGs----
 Content-Type: text/html
-Content-ID: <frame-86492C1D3B097485F983FA3B2E2D6E5D@mhtml.blink>
+Content-ID: <frame-C08C4B53A9B7FA16FAEE8280C3696880@mhtml.blink>
 Content-Transfer-Encoding: quoted-printable
 Content-Location: https://stonestoryrpg.com/stonescript/beta.html
 
 <!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"tex=
 t/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/css" href=3D=
-"cid:css-8d2071b3-da77-4c32-a2b3-30deef723a43@mhtml.blink" />
+"cid:css-3446d278-a8ab-420f-bdd6-f07bbf4bc6c4@mhtml.blink" />
 
 <meta content=3D"Stonescript Manual" property=3D"og:title">
 <meta content=3D"All instructions for Stonescript, the programming language=
@@ -50,7 +50,7 @@ ry RPG" align=3D"middle"></a></div>
 <center>=C2=B7 =C2=B7:=C2=B7: Stonescript (Beta) :=C2=B7:=C2=B7 =C2=B7</cen=
 ter>
 <div id=3D"title-separator"><!---------------------------></div>
-<center><font color=3D"#808080">v4.10.1 - 2025/02/02</font></center>
+<center><font color=3D"#808080">v4.11.2 - 2025/02/23</font></center>
 <answer><center><a href=3D"https://stonestoryrpg.com/stonescript">intro</a>=
  | <a href=3D"https://stonestoryrpg.com/stonescript/manual.html">manual</a>=
  | beta  =C2=B7:=C2=B7  <a href=3D"https://stonestoryrpg.com/releasenotes/b=
@@ -139,6 +139,8 @@ endix B - Sound Effects</a></f>
 ndix C - Music</a></f>
 <f>  <a href=3D"https://stonestoryrpg.com/stonescript/beta.html#ambient">Ap=
 pendix D - Ambient Loops</a></f>
+<f>  <a href=3D"https://stonestoryrpg.com/stonescript/beta.html#scripts">Ap=
+pendix E - All importable scripts</a></f>
 
 
 <div id=3D"example"><div id=3D"separator"><!---------------------------></d=
@@ -668,14 +670,15 @@ reen.h<br>&gt;Screen height =3D @sh@</eg></td>
   <tr>
     <td>?summon.count</td>
     <td>The number of summoned allies currently in game.<eg><br>E.g.<br>?su=
-mmon.count =3D 0<br>  equipL talisman<br>  activate L</eg></td>
+mmon.count =3D 0 &amp;<br>^ item.CanActivate()<br>  equipL talisman<br>  ac=
+tivate L</eg></td>
   </tr>
   <tr>
     <td>summon.GetId(index =3D 0)</td>
     <td>Returns the ID of the summon at a given index. The index parameter =
 is optional and defaults to zero (first summon). Returns null if no summons=
- are at that index.<eg><br>E.g.<br>?summon.GetId() ! "cinderwisp"<br>  equi=
-pR fire talisman<br>  activate R</eg></td>
+ are at that index.<eg><br>E.g.<br>?summon.GetId() ! "cinderwisp" &amp;<br>=
+^ item.CanActivate()<br>  equipR fire talisman<br>  activate R</eg></td>
   </tr>
   <tr>
     <td>summon.GetName(index =3D 0)</td>
@@ -3305,7 +3308,7 @@ import UI/MindstoneButton
   </tr>
   <tr>
     <td>=C3=86ther Talisman</td>
-    <td>"aether_talisman"</td>
+    <td>"talisman_aether"</td>
   </tr>
   <tr>
     <td>Bardiche</td>
@@ -3333,7 +3336,7 @@ import UI/MindstoneButton
   </tr>
   <tr>
     <td>Fire Talisman</td>
-    <td>"fire_talisman"</td>
+    <td>"talisman_fire"</td>
   </tr>
   <tr>
     <td>Hatchet</td>
@@ -4031,6 +4034,205 @@ waterfall_c
 "#505050">^Back to top</font></a>
 </div>
 
+<div id=3D"scripts"><div id=3D"separator"><!---------------------------></d=
+iv>
+
+=C2=B7:=C2=B7:=C2=B7 Appendix - All importable scripts =C2=B7:=C2=B7:=C2=B7
+<font color=3D"#bbbbbb">
+import Chisel
+import CozyCave
+import Fishing
+import TrainAdventure
+
+import Cosmetics/Acrocorn
+import Cosmetics/AcronianGuardian
+import Cosmetics/AuroraBorealis
+import Cosmetics/BadApple
+import Cosmetics/Beach
+import Cosmetics/Bolesh
+import Cosmetics/CaveParty
+import Cosmetics/ChristmasTree
+import Cosmetics/ChrWings
+import Cosmetics/ConfettiHead
+import Cosmetics/CultGroup
+import Cosmetics/DragonWorm
+import Cosmetics/Drill
+import Cosmetics/Explosion
+import Cosmetics/FireFly
+import Cosmetics/Fireworks
+import Cosmetics/FrogInvasion
+import Cosmetics/Giftbag
+import Cosmetics/Infected
+import Cosmetics/Knight
+import Cosmetics/Mech
+import Cosmetics/MineManager
+import Cosmetics/MushroomAnt
+import Cosmetics/MushroomHead
+import Cosmetics/Party
+import Cosmetics/PartyNoisemaker
+import Cosmetics/Portobello
+import Cosmetics/PumpkinCarving
+import Cosmetics/Pumpkins
+import Cosmetics/quips
+import Cosmetics/SantaFlyingSleigh
+import Cosmetics/SillyGoose
+import Cosmetics/SleepyStonehead
+import Cosmetics/SpookyScarySkeletons
+import Cosmetics/SpringBloom
+import Cosmetics/StoneClause
+import Cosmetics/StoneheadFall
+import Cosmetics/StoneHeadless
+import Cosmetics/StonePhone
+import Cosmetics/SuperStoneHead
+import Cosmetics/TheSun
+import Cosmetics/Turret
+import Cosmetics/TwinSuns
+import Cosmetics/WavyScarf
+import Cosmetics/WitchBroom
+
+import Foes/FlowerFoes
+import Foes/PallasCrown
+import Foes/PumpkinWraith
+import Foes/SurferGuardian
+
+import Games/2048
+import Games/Arena
+import Games/Asteroids
+import Games/Blackjack
+import Games/BurgerRush
+import Games/cColorTetris
+import Games/cGomoku
+import Games/cTetris
+import Games/DigitsPuzzle
+import Games/FeedABat
+import Games/FlyupText
+import Games/FrogBog
+import Games/FrogJump
+import Games/GetawayDriver
+import Games/GrowPlants
+import Games/KillerRPG
+import Games/Metallophone
+import Games/Minesweeper
+import Games/PlayingCards
+import Games/Simon
+import Games/Snake
+import Games/SpearThrowing
+import Games/SSRPGIdle
+import Games/StoneasaurGame
+import Games/StoneBoxman
+import Games/StoneDungeon
+import Games/Stonemon
+import Games/Sudoku
+import Games/SudokuEnchant
+import Games/SwordGame
+import Games/TowerDefense
+import Games/WhackaMole
+
+import Hats/CatHat
+import Hats/ChefHat
+import Hats/DefectFaceplate
+import Hats/DiscoVisor
+import Hats/Enchanthead
+import Hats/Headphones
+import Hats/Helmet
+import Hats/HrimnirHair
+import Hats/IroncladMask
+import Hats/JesterHat
+import Hats/LanternTalisman
+import Hats/MushroomHat
+import Hats/PirateHat
+import Hats/ReindeerHead
+import Hats/SantaHat
+import Hats/ShuffleHat
+import Hats/SilentSkull
+import Hats/Skully
+import Hats/StarCloak
+import Hats/Treeman
+import Hats/WitchHat
+
+import Pets/Bear
+import Pets/BlackHole
+import Pets/Boo
+import Pets/Bunny
+import Pets/CatBalloon
+import Pets/CavePets
+import Pets/Chick
+import Pets/Crab
+import Pets/Cranius
+import Pets/Dog
+import Pets/Dracula
+import Pets/Dragon
+import Pets/Fly
+import Pets/FoesNoMore
+import Pets/Frog
+import Pets/JackOLantern
+import Pets/LegsTurkey
+import Pets/Mushroom
+import Pets/Panda
+import Pets/Pomeranian
+import Pets/RoyaltyDeliverer
+import Pets/Skully
+import Pets/Snail
+import Pets/SnowBunny
+import Pets/Snowman
+import Pets/Spider
+import Pets/SpringBuddy
+import Pets/Stonehead
+import Pets/Sun
+import Pets/TarPusher
+import Pets/Wisp
+
+import UI/A2S
+import UI/BetterInfo2
+import UI/BetterText
+import UI/BorderClock
+import UI/BossBar
+import UI/BossHealthBar
+import UI/BragMeter
+import UI/Calculator
+import UI/CDTime
+import UI/ClickAbilities
+import UI/damageFlash
+import UI/DragController
+import UI/FaceHUD
+import UI/FoeStateTracker
+import UI/FreeChestTracker
+import UI/InfoFloat
+import UI/LiveSplit
+import UI/MindstoneButton
+import UI/MiniMap
+import UI/MusicBox
+import UI/OkamiroyUtils
+import UI/PefWindow
+import UI/PlayerStateTracker
+import UI/RecordPlayer
+import UI/ScrollText
+import UI/StealMeter
+import UI/ToolBelt
+import UI/VisualStatusEffects
+import UI/ChiselFiles/Additional Documentation
+import UI/ChiselFiles/SetLayer
+import UI/FancyUI/colour
+import UI/FancyUI/fancyui
+import UI/FancyUI/print
+
+import Weapons/ArmorGenerator
+import Weapons/EmbueDaggers
+import Weapons/LanternTalisman
+import Weapons/MajPack
+import Weapons/MajVines
+import Weapons/PsyCrusher
+import Weapons/RecoilKick
+import Weapons/RootBats
+import Weapons/Scythe
+import Weapons/ShockwaveWhip
+import Weapons/SpellBook
+</font>
+
+<a href=3D"https://stonestoryrpg.com/stonescript/beta.html#"><font color=3D=
+"#505050">^Back to top</font></a>
+</div>
+
 <font color=3D"#505050">
 Copyright Martian Rex, Inc. 2020
 
@@ -4039,16 +4241,16 @@ Copyright Martian Rex, Inc. 2020
 
 <br>
 
-</body><div></div></html>
-------MultipartBoundary--lAxLcHiaP8ihxUvdsDo7Ski2Hng1ZodNWbyGQgFdI8----
+</body><div></div><div></div></html>
+------MultipartBoundary--sj37ONnczLyj1hXmQcvrPMK95Yz1qR5zr2b1yN4zGs----
 Content-Type: text/css
 Content-Transfer-Encoding: quoted-printable
-Content-Location: cid:css-8d2071b3-da77-4c32-a2b3-30deef723a43@mhtml.blink
+Content-Location: cid:css-3446d278-a8ab-420f-bdd6-f07bbf4bc6c4@mhtml.blink
 
 @charset "utf-8";
 
 eg { color: rgb(112, 112, 112); }
-------MultipartBoundary--lAxLcHiaP8ihxUvdsDo7Ski2Hng1ZodNWbyGQgFdI8----
+------MultipartBoundary--sj37ONnczLyj1hXmQcvrPMK95Yz1qR5zr2b1yN4zGs----
 Content-Type: text/css
 Content-Transfer-Encoding: quoted-printable
 Content-Location: https://stonestoryrpg.com/faq-fixed.css
@@ -4119,7 +4321,7 @@ th: 100%; height: 100%; }
 
 #storeimg { width: 600px; display: block; margin-left: auto; margin-right: =
 auto; }
-------MultipartBoundary--lAxLcHiaP8ihxUvdsDo7Ski2Hng1ZodNWbyGQgFdI8----
+------MultipartBoundary--sj37ONnczLyj1hXmQcvrPMK95Yz1qR5zr2b1yN4zGs----
 Content-Type: text/css
 Content-Transfer-Encoding: quoted-printable
 Content-Location: https://stonestoryrpg.com/faq-stretch.css
@@ -4190,7 +4392,7 @@ idth: 100%; height: 100%; }
 
 #storeimg { width: 100%; display: block; margin-left: auto; margin-right: a=
 uto; }
-------MultipartBoundary--lAxLcHiaP8ihxUvdsDo7Ski2Hng1ZodNWbyGQgFdI8----
+------MultipartBoundary--sj37ONnczLyj1hXmQcvrPMK95Yz1qR5zr2b1yN4zGs----
 Content-Type: image/png
 Content-Transfer-Encoding: base64
 Content-Location: https://stonestoryrpg.com/capsule_b_231x87.png
@@ -4250,4 +4452,4 @@ k5O40PyoK656oj4YKrX5xCxwFBwPM9kM5iTazgGowQpVi05Y/fZGzgbcH/g0wi99g7WMRm3Llj+9
 Y2W3c2rv6ES3SW5pc5sfkskPS6+L39Q99Oa+ebexj+IRxWRvtWOv0a5MfN8rmpnep4PJOvqhFtsF
 d0SWb6Jr/sn2j/Mf5z/O72v/E2AAsW23A2oLRtgAAAAASUVORK5CYII=
 
-------MultipartBoundary--lAxLcHiaP8ihxUvdsDo7Ski2Hng1ZodNWbyGQgFdI8------
+------MultipartBoundary--sj37ONnczLyj1hXmQcvrPMK95Yz1qR5zr2b1yN4zGs------

@@ -3273,9 +3273,9 @@ import Fishing
 | 意念石     | "mind"            | 360                 | 无           |
 | 铁头长杖   | "quarterstaff"    | 195 - 3 × enLv      | 无           |
 | 骷髅手     | "skeleton_arm"    | 900                 | 无           |
-| 火焰护符   | "fire_talisman"   | 150                 | 20           |
+| 火焰护符   | "talisman_fire"   | 150                 | 20           |
 | 煤灰精灵   | "cinderwisp"      | 2700                | 无           |
-| 以太护符   | "aether_talisman" | 150                 | 20           |
+| 以太护符   | "talisman_aether" | 150                 | 20           |
 | 虚空编织者 | "voidweaver"      | 2700                | 无           |
 | 灾厄魔杖   | "wand_aether"     | 900                 | 无           |
 | 爆炸魔杖   | "wand_fire"       | 900                 | 无           |
@@ -3983,8 +3983,8 @@ waterfall_c
 | blade_of_god            | 堕神之剑       |
 | cult_mask               | 那伽面具       |
 | skeleton_arm            | 骷髅手         |
-| fire_talisman | 火焰护符   |
-| aether_talisman | 以太护符   |
+| talisman_fire | 火焰护符   |
+| talisman_aether | 以太护符   |
 | Crusader's Shield(暂定) | 十字军盾牌     |
 
 ##### 召唤物
@@ -4294,15 +4294,239 @@ equip sword ice -long +1
 
 -----
 
+·:·:· 附录K.官方可导入脚本 ·:·:·
 
+**大型游戏**
+
+import Chisel
+import CozyCave
+import Fishing
+import TrainAdventure
+
+
+
+**皮肤**
+
+import Cosmetics/Acrocorn
+import Cosmetics/AcronianGuardian
+import Cosmetics/AuroraBorealis
+import Cosmetics/BadApple
+import Cosmetics/Beach
+import Cosmetics/Bolesh
+import Cosmetics/CaveParty
+import Cosmetics/ChristmasTree
+import Cosmetics/ChrWings
+import Cosmetics/ConfettiHead
+import Cosmetics/CultGroup
+import Cosmetics/DragonWorm
+import Cosmetics/Drill
+import Cosmetics/Explosion
+import Cosmetics/FireFly
+import Cosmetics/Fireworks
+import Cosmetics/FrogInvasion
+import Cosmetics/Giftbag
+import Cosmetics/Infected
+import Cosmetics/Knight
+import Cosmetics/Mech
+import Cosmetics/MineManager
+import Cosmetics/MushroomAnt
+import Cosmetics/MushroomHead
+import Cosmetics/Party
+import Cosmetics/PartyNoisemaker
+import Cosmetics/Portobello
+import Cosmetics/PumpkinCarving
+import Cosmetics/Pumpkins
+import Cosmetics/quips
+import Cosmetics/SantaFlyingSleigh
+import Cosmetics/SillyGoose
+import Cosmetics/SleepyStonehead
+import Cosmetics/SpookyScarySkeletons
+import Cosmetics/SpringBloom
+import Cosmetics/StoneClause
+import Cosmetics/StoneheadFall
+import Cosmetics/StoneHeadless
+import Cosmetics/StonePhone
+import Cosmetics/SuperStoneHead
+import Cosmetics/TheSun
+import Cosmetics/Turret
+import Cosmetics/TwinSuns
+import Cosmetics/WavyScarf
+import Cosmetics/WitchBroom
+
+
+
+**敌人美化**
+
+import Foes/FlowerFoes
+import Foes/PallasCrown
+import Foes/PumpkinWraith
+import Foes/SurferGuardian
+
+
+
+**小游戏**
+
+import Games/2048
+import Games/Arena
+import Games/Asteroids
+import Games/Blackjack
+import Games/BurgerRush
+import Games/cColorTetris
+import Games/cGomoku
+import Games/cTetris
+import Games/DigitsPuzzle
+import Games/FeedABat
+import Games/FlyupText
+import Games/FrogBog
+import Games/FrogJump
+import Games/GetawayDriver
+import Games/GrowPlants
+import Games/KillerRPG
+import Games/Metallophone
+import Games/Minesweeper
+import Games/PlayingCards
+import Games/Simon
+import Games/Snake
+import Games/SpearThrowing
+import Games/SSRPGIdle
+import Games/StoneasaurGame
+import Games/StoneBoxman
+import Games/StoneDungeon
+import Games/Stonemon
+import Games/Sudoku
+import Games/SudokuEnchant
+import Games/SwordGame
+import Games/TowerDefense
+import Games/WhackaMole
+
+
+
+**帽子**
+
+import Hats/CatHat
+import Hats/ChefHat
+import Hats/DefectFaceplate
+import Hats/DiscoVisor
+import Hats/Enchanthead
+import Hats/Headphones
+import Hats/Helmet
+import Hats/HrimnirHair
+import Hats/IroncladMask
+import Hats/JesterHat
+import Hats/LanternTalisman
+import Hats/MushroomHat
+import Hats/PirateHat
+import Hats/ReindeerHead
+import Hats/SantaHat
+import Hats/ShuffleHat
+import Hats/SilentSkull
+import Hats/Skully
+import Hats/StarCloak
+import Hats/Treeman
+import Hats/WitchHat
+
+
+
+**宠物**
+
+import Pets/Bear
+import Pets/BlackHole
+import Pets/Boo
+import Pets/Bunny
+import Pets/CatBalloon
+import Pets/CavePets
+import Pets/Chick
+import Pets/Crab
+import Pets/Cranius
+import Pets/Dog
+import Pets/Dracula
+import Pets/Dragon
+import Pets/Fly
+import Pets/FoesNoMore
+import Pets/Frog
+import Pets/JackOLantern
+import Pets/LegsTurkey
+import Pets/Mushroom
+import Pets/Panda
+import Pets/Pomeranian
+import Pets/RoyaltyDeliverer
+import Pets/Skully
+import Pets/Snail
+import Pets/SnowBunny
+import Pets/Snowman
+import Pets/Spider
+import Pets/SpringBuddy
+import Pets/Stonehead
+import Pets/Sun
+import Pets/TarPusher
+import Pets/Wisp
+
+
+
+**UI界面**
+
+import UI/A2S
+import UI/BetterInfo2
+import UI/BetterText
+import UI/BorderClock
+import UI/BossBar
+import UI/BossHealthBar
+import UI/BragMeter
+import UI/Calculator
+import UI/CDTime
+import UI/ClickAbilities
+import UI/damageFlash
+import UI/DragController
+import UI/FaceHUD
+import UI/FoeStateTracker
+import UI/FreeChestTracker
+import UI/InfoFloat
+import UI/LiveSplit
+import UI/MindstoneButton
+import UI/MiniMap
+import UI/MusicBox
+import UI/OkamiroyUtils
+import UI/PefWindow
+import UI/PlayerStateTracker
+import UI/RecordPlayer
+import UI/ScrollText
+import UI/StealMeter
+import UI/ToolBelt
+import UI/VisualStatusEffects
+import UI/ChiselFiles/Additional Documentation
+import UI/ChiselFiles/SetLayer
+import UI/FancyUI/colour
+import UI/FancyUI/fancyui
+import UI/FancyUI/print
+
+
+
+**武器皮肤**
+
+import Weapons/ArmorGenerator
+import Weapons/EmbueDaggers
+import Weapons/LanternTalisman
+import Weapons/MajPack
+import Weapons/MajVines
+import Weapons/PsyCrusher
+import Weapons/RecoilKick
+import Weapons/RootBats
+import Weapons/Scythe
+import Weapons/ShockwaveWhip
+import Weapons/SpellBook
+
+
+
+
+------
 
 版权所有： Martian Rex, Inc. 2020
 
 翻译：逃税奸商
 
-版本：v4.10.1 - 2025/02/02
+版本：v4.11.2 - 2025/02/23
 
-翻译更新时间：2025/02/05
+翻译更新时间：2025/03/20
 
 感谢up主 [福阿月](https://space.bilibili.com/817710) 所进行的[翻译工作](https://www.bilibili.com/read/cv6901881?from=search&spm_id_from=333.337.0.0)，本文档在他的基础上完成（节省了大量复制粘贴的时间）。
 
