@@ -3254,7 +3254,7 @@ import Fishing
 
 #### ·:·:· 附录A.能力冷却ID [Ability Cooldown IDs](https://stonestoryrpg.com/stonescript/manual.html#ability_ids) ·:·:·
 
-**有关 item.CanActivate(str) 和 item.GetCooldown(str) 等多处使用的能力ID的字符串参数，请参见下表“能力冷却ID”严格填写，而不能随便填写。**注意:无效的能力字符串将返回-1，如果没有对应的武器，技能结果也将返回-1。
+**有关 item.CanActivate(str) 和 item.GetCooldown(str) 等多处使用的能力ID的字符串参数，请参见下表“能力冷却ID”严格填写，而不能随便填写。** 注意:无效的能力字符串将返回-1，如果没有对应的武器，技能结果也将返回-1。
 
 同时，表格中列出了各个物品的冷却时间和伤害动画时间，使用武器技能时需要通过冷却时间判断是否武器已经完成动画并打出伤害；部分物品为瞬发，不需要考虑动画时间，只需要保证在发动的当前帧完整使用而不被替换即可。
 
@@ -3281,7 +3281,7 @@ import Fishing
 | 爆炸魔杖   | "wand_fire"       | 900                 | 无           |
 | 冰霜魔杖   | "wand_ice"        | 900                 | 无           |
 | 疫病魔杖   | "wand_poison"     | 900                 | 无           |
-| 荡涤魔杖   | "wand_vigor"      | 900 - 15 × (enLv-1) | 无           |
+| 荡涤魔杖   | "wand_vigor"      | 900 - 15 × enLv     | 无           |
 | 引力魔杖   | "wand_stone"      | 900 - 30 × (enLv-1) | 无           |
 | 延展长杖   | "staff_aether"    | 900                 | 无           |
 | 炼狱长杖   | "staff_fire"      | 900                 | 无           |
@@ -4162,7 +4162,8 @@ waterfall_c
 | ❄:debuff_chill                                               | 寒冰I或i，减少攻速                                           |
 | φ:debuff_dot                                                 | 火焰F，持续掉血                                              |
 | φ:debuff_dot_2                                               | 火焰f，持续掉血                                              |
-| o:stun<br />注：stun目前存在bug，有可能在代码中被归为foe.buffs | 冲撞盾、铁头长杖、冰霜魔杖技能，怪力药水，重锤、大锤普攻     |
+| o:stun                                                       | 冲撞盾、铁头长杖，怪力药水，重锤、大锤普攻，敌人眩晕         |
+| o:debuff_frost_stun<br />注：debuff_frost_stun目前存在bug，被归为foe.buffs | 冰霜魔杖技能，敌人眩晕                                       |
 | ∞:debuff_feeble                                              | 邪教面具技能，虚弱                                           |
 | ×:debuff_armor_fatigue                                       | 重锤技能，减少护甲回复                                       |
 | i:ignition                                                   | 煤灰精灵技能，按层数持续掉血                                 |
@@ -4217,7 +4218,7 @@ equip sword ice -long +1
 | monarch            | 君主           | 只有一个君主，但其最大生命值和最大护甲值+300%，+1移动速度，+2攻击伤害，完全免疫消解 |
 | mundane       | 平庸     | 属性弱点移除                                               |
 | plated              | 重甲            | 最大生命值-50%，额外获得等于原始最大生命值200%的护甲  |
-| regen      | 恢复    | 每秒恢复{5×level}点生命值                                  |
+| regen      | 恢复    | 每秒恢复{ 5 × level }点生命值                              |
 | stoic    | 坚忍  | 免疫第一次受到的伤害                                         |
 | tenacious           | 坚韧         | 免疫减益效果                                                   |
 | **枯木峡谷  刷新**      |       |                                                              |
@@ -4271,26 +4272,26 @@ equip sword ice -long +1
 
 #### ·:·:· 附录J.隐藏附魔效果 ·:·:·
 
-从邪神面具实装后，武器装备中逐渐添加了各种隐藏附魔效果，以下是石头纪中各种隐藏附魔的效果。一般隐藏附魔效果会随着**附魔等级的提升而改变**，具体数值在下表中标出，附魔等级用 enLv 表示。
+从邪神面具实装后，武器装备中逐渐添加了各种隐藏附魔效果，以下是石头纪中各种隐藏附魔的效果。一般隐藏附魔效果会随着**附魔等级的提升而改变**，具体数值在下表中标出，附魔等级用 enLv 表示，所有小数向下取整。
 
 | 装备                           | 隐藏附魔效果                                                 |
 | ------------------------------ | ------------------------------------------------------------ |
-| 邪神面具<br />cult mask        | 延长时间：你最先获得的增益每过  { $22 - \text{enLv}$ }帧就会延长1帧 |
-| 弩 / 连弩                      | 穿透：具备 { $\text{enLv}$ } 的穿透效果                      |
-| 属性锤                         | 溅射：有 { $20 + 4 \times (\text{enLv} - 1)$ } % 的概率溅射  |
-| 符文 / 符文武器                | 增加生命上限，其中效果最好的是符文，增加 { $ \lceil 7.5 \times (\text{enLv} - 1) \rceil ) $ } 的生命上限 |
-| 灾厄魔杖<br />Calamity Wand    | 技能：- [14]，令附近敌人当前生命减少 { $10 + 1.5 \times \text{enLv}$ } % ，CD：900帧 |
-| 爆炸魔杖<br />Explosive Wand   | 技能：- [4]，造成爆炸，造成{ $40 + 10 \times \text{enLv}$ }点伤害 ，CD：900帧 |
-| 冰霜魔杖<br />Frost Wand       | 技能：- [3]，产生寒风令敌人眩晕{ $ \lceil 90 + 4.5 \times (\text{enLv} - 1) \rceil $ }帧，CD：900帧 |
-| 疫病魔杖<br />Plague Wand      | 技能：- [6]，产生毒雾造成{$ \left\lfloor \frac{\text{enLv} - 1}{4} \right\rfloor + 1 $ }层虚弱，虚弱减益持续90帧 ，CD：900帧<br />注：该效果为debuff_damage，与dP武器效果相同且相互覆盖，且层数均为显示欺诈，实际只有1层。 |
-| 荡涤魔杖<br />Reset Wand       | 技能：- [1]，令附近所有敌人清除身上可以清除的减益和增益 ，CD：{ $900 - 15 \times \text{enLv}$ }帧 |
-| 引力魔杖<br />Gravity Wand     | 技能：- [0]，强迫附近敌人与你站成一排，CD：{ $900 - 30 \times (\text{enLv} - 1)$ }帧 |
-| 延展长杖<br />Grasping Staff   | 技能：- [2]，攻击距离增长10 （最远22），并增加子弹的攻击宽度（实际是x方向长度），增益持续时间{ $120 + 30 \times \text{enLv}$ }帧 ，CD：900帧 |
-| 炼狱长杖<br />Infernal Staff   | 技能：- [6]，地狱之火环绕， 获得灼烧增益以及移速增益效果 ，CD：900帧<br />灼烧：攻击速度加快{$3+ \left\lfloor 0.068 \times \text{enLv}  \right\rfloor$}，每2秒造成{$ \left\lfloor \frac{\text{enLv} }{5} \right\rfloor + 1 $}点伤害，增益持续时间{ $180 + 6 \times (\text{enLv} - 1)$ }帧<br />移速：移速+1，持续时间{ $90 + 3 \times (\text{enLv} - 1)$ }帧 |
-| 永恒长杖<br />Eternity Staff   | 技能：- [1]，将自己塞入冰箱，免疫伤害且{$ \left\lfloor 37.5 - 1.5 \times {\text{enLv} } \right\rfloor $}帧内不能进行动作 ，CD：{$900 - 30 \times (\text{enLv} - 1)$}帧 |
-| 狂战长杖<br />Berserker Staff  | 技能：- [8]，进入狂暴状态，令你受到和获得的伤害全部增加{$9 + \text{enLv}$}%，持续时间150帧 ，CD：900帧 |
-| 防阻长杖<br />Prevention Staff | 技能：- [4]，令你在60帧内受到的第一个减益效果无效 ，CD：{$900 - 30 \times (\text{enLv} - 1)$}帧 |
-| 灵敏长杖<br />Acrobatic Staff  | 技能：- [3]，退后闪避5距离，CD：{$900 - 30 \times (\text{enLv} - 1)$}帧 |
+| 邪神面具<br />cult mask        | 延长时间：你最先获得的增益每过  { 22 - enLv }帧就会延长1帧   |
+| 弩 / 连弩                      | 穿透：具备 { enLv } 的穿透效果                               |
+| 属性锤                         | 溅射：有 { 16 + 4 × enLv } % 的概率溅射                      |
+| 符文 / 符文武器                | 增加生命上限，其中效果最好的是符文，增加 { 7.5 × (enLv - 1) } 的生命上限 |
+| 灾厄魔杖<br />Calamity Wand    | 技能：- [14]，令附近敌人当前生命减少 { 10 + 1.5 × enLv } % ，CD：900帧 |
+| 爆炸魔杖<br />Explosive Wand   | 技能：- [4]，造成爆炸，造成{ 40 + 10 × enLv }点伤害 ，CD：900帧 |
+| 冰霜魔杖<br />Frost Wand       | 技能：- [3]，产生寒风令敌人眩晕{ 25.5 + 4.5 × enLv }帧，CD：900帧 |
+| 疫病魔杖<br />Plague Wand      | 技能：- [6]，产生毒雾造成1层虚弱，CD：900帧<br />虚弱：持续90帧，使伤害减少{ (enLv - 1) / 4 + 1 } <br />注：该虚弱的实际效果为debuff_damage，与dP武器效果只有数值区别且相互覆盖，相当于AOE版本的P。 |
+| 荡涤魔杖<br />Reset Wand       | 技能：- [1]，令附近所有敌人清除身上可以清除的减益和增益 ，CD：{ 900 - 15 × enLv }帧 |
+| 引力魔杖<br />Gravity Wand     | 技能：- [0]，强迫附近敌人与你站成一排，CD：{ 930 - 30 × enLv }帧 |
+| 延展长杖<br />Grasping Staff   | 技能：- [2]，攻击距离增长10 （最远22），并增加子弹的攻击宽度（实际是x方向长度），增益持续时间{ 120 + 30 × enLv }帧 ，CD：900帧 |
+| 炼狱长杖<br />Infernal Staff   | 技能：- [6]，地狱之火环绕， 获得灼烧增益以及移速增益效果 ，CD：900帧<br />灼烧：攻击速度加快{ 3 + 0.068 × enLv }，每2秒造成{ enLv / 5 + 1}点伤害，增益持续时间{ 174 + 6 × enLv }帧<br />移速：移速+1，持续时间{ 87 + 3 × enLv }帧 |
+| 永恒长杖<br />Eternity Staff   | 技能：- [1]，将自己塞入冰箱，免疫伤害且{ 37.5 - 1.5 × enLv }帧内不能进行动作 ，CD：{ 930 - 30 × enLv }帧 |
+| 狂战长杖<br />Berserker Staff  | 技能：- [8]，进入狂暴状态，令你受到和获得的伤害全部增加{ 9 + enLv }%，持续时间150帧 ，CD：900帧 |
+| 防阻长杖<br />Prevention Staff | 技能：- [4]，令你在60帧内受到的第一个减益效果无效 ，CD：{ 930 - 30 × enLv }帧 |
+| 灵敏长杖<br />Acrobatic Staff  | 技能：- [3]，退后闪避10距离，CD：{ 930 - 30 × enLv }帧       |
 
 
 
@@ -4300,15 +4301,16 @@ equip sword ice -long +1
 
 **大型游戏**
 
+```
 import Chisel
 import CozyCave
 import Fishing
 import TrainAdventure
-
-
+```
 
 **皮肤**
 
+```
 import Cosmetics/Acrocorn
 import Cosmetics/AcronianGuardian
 import Cosmetics/AuroraBorealis
@@ -4354,20 +4356,20 @@ import Cosmetics/Turret
 import Cosmetics/TwinSuns
 import Cosmetics/WavyScarf
 import Cosmetics/WitchBroom
-
-
+```
 
 **敌人美化**
 
+```
 import Foes/FlowerFoes
 import Foes/PallasCrown
 import Foes/PumpkinWraith
 import Foes/SurferGuardian
-
-
+```
 
 **小游戏**
 
+```
 import Games/2048
 import Games/Arena
 import Games/Asteroids
@@ -4400,11 +4402,11 @@ import Games/SudokuEnchant
 import Games/SwordGame
 import Games/TowerDefense
 import Games/WhackaMole
-
-
+```
 
 **帽子**
 
+```
 import Hats/CatHat
 import Hats/ChefHat
 import Hats/DefectFaceplate
@@ -4426,11 +4428,11 @@ import Hats/Skully
 import Hats/StarCloak
 import Hats/Treeman
 import Hats/WitchHat
-
-
+```
 
 **宠物**
 
+```
 import Pets/Bear
 import Pets/BlackHole
 import Pets/Boo
@@ -4462,11 +4464,11 @@ import Pets/Stonehead
 import Pets/Sun
 import Pets/TarPusher
 import Pets/Wisp
-
-
+```
 
 **UI界面**
 
+```
 import UI/A2S
 import UI/BetterInfo2
 import UI/BetterText
@@ -4500,11 +4502,11 @@ import UI/ChiselFiles/SetLayer
 import UI/FancyUI/colour
 import UI/FancyUI/fancyui
 import UI/FancyUI/print
-
-
+```
 
 **武器皮肤**
 
+```
 import Weapons/ArmorGenerator
 import Weapons/EmbueDaggers
 import Weapons/LanternTalisman
@@ -4516,6 +4518,7 @@ import Weapons/RootBats
 import Weapons/Scythe
 import Weapons/ShockwaveWhip
 import Weapons/SpellBook
+```
 
 
 
