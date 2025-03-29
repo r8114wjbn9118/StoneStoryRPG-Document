@@ -1,1 +1,5 @@
-Stonescript mhtml/
+.mhtml
+node_modules
+package-lock.json
+dist
+cache
