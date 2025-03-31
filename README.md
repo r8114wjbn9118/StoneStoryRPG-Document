@@ -2,9 +2,9 @@
 
 Stone Story RPG石头纪的中文文档仓库
 
-**查看StoneScript石语言中文文档** 👉 [Stonescript.md](https://github.com/JianShang36/StoneStoryRPG-Document/blob/main/Stonescript.md)
+**查看StoneScript石语言中文文档** 👉 [Stonescript.md](https://stonestoryrpg-chinese-document.vercel.app/Stonescript.html)
 
-**查看官方简介教程中文版，请点击** 👉 [SSRintro.md](https://github.com/JianShang36/StoneStoryRPG-Document/blob/main/SSRintro.md)
+**查看官方简介教程中文版，请点击** 👉 [SSRintro.md](https://stonestoryrpg-chinese-document.vercel.app/)
 
 
 ## 许可协议  
