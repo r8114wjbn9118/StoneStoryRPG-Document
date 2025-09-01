@@ -3338,6 +3338,8 @@ import Fishing
 
 **有关`item.CanActivate(str)`和`item.GetCooldown(str)`等多处使用的能力ID的字符串参数，请参见下表“能力冷却ID”严格填写，而不能随便填写。** 注意:无效的能力字符串将返回-1，如果没有对应的武器，技能结果也将返回-1。
 
+**“能力冷却ID”** 在使用时，可以带双引号 ” “，或者不带双引号，都可以生效。
+
 同时，表格中列出了各个物品的冷却时间和伤害动画时间，使用武器技能时需要通过冷却时间判断是否武器已经完成动画并打出伤害；部分物品为瞬发，不需要考虑动画时间，只需要保证在发动的当前帧完整使用而不被替换即可。
 
 部分物品的冷却时间会随着给**技能的附魔等级**上升而减少，亦在下表中标出，附魔等级用 enLv 表示。
@@ -3371,6 +3373,7 @@ import Fishing
 | 狂战长杖   | `staff_poison`    | 900                 | 无           |
 | 防阻长杖   | `staff_vigor`     | 900 - 30 × (enLv-1) | 无           |
 | 灵敏长杖   | `staff_stone`     | 900 - 30 × (enLv-1) | 无           |
+| 铲子       | `staff_stone`     | 270                 | 13           |
 
 
 
@@ -4206,9 +4209,10 @@ waterfall_c
 | o:bardiche_buff_aoe_chance                                   | 巴迪什技能，单体攻击限制                                     |
 | o:bardiche_buff_crit_chance                                  | 巴迪什技能，100%暴击                                         |
 | o:bardiche_buff_crit_mult                                    | 巴迪什技能，增加暴击倍数                                     |
-| o:bardiche_buff_move_speed                                   | 巴迪什、重锤、炼狱长杖技能技能，短暂增加移速                 |
+| o:bardiche_buff_move_speed                                   | 巴迪什、重锤、炼狱长杖、铲子的技能，短暂增加移速             |
 | o:quarterstaff_buff_attack_speed                             | 铁头长杖技能，短暂增加攻击速度                               |
 | o:quarterstaff_buff_stun                                     | 铁头长杖技能，短暂造成眩晕                                   |
+| o: shovel_damage                                             | 铲子技能，如果敌人正在攻击前摇,将其延后15帧                  |
 | @:experience                                                 | 经验药水，增加获得的经验和气                                 |
 | o:strength                                                   | 怪力药水，击晕与破甲                                         |
 | !:lucky_crit                                                 | 暴击药水，必定暴击                                           |
