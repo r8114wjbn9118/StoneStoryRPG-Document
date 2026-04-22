@@ -4,8 +4,13 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
 	title: "Stone Story RPG石头纪中文文档",
 	titleTemplate: false,
+	description: '非官方石语言中文文档',
 
-	head: [['link', { rel: 'icon', href: '/image/favicon.ico' }]],
+	head: [
+		['meta', { property: 'og:image', href: '/favicon.ico' }],
+		['meta', { name: 'twitter:image', href: '/favicon.ico' }],
+		['link', { rel: 'icon', href: '/favicon.ico' }],
+	],
 	lang: 'zh-CN',
 
 	appearance: false,
